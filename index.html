@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#C43B0E">
+    <link rel="shortcut icon" href="images/Icon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="app.webmanifest">
+    <link rel="preload" href="app.webmanifest">
+    <title>Document</title>
+</head>
+
+<body onload="opentab()">
+
+    <div class="wrapper">
+        <h1 class="status">
+
+        </h1>
+
+        <div class="countdown-wrap">
+            <div class="chronos-container">
+                <h1 class="days">
+                    Time
+                </h1>
+                <h3>Days</h3>
+            </div>
+
+            <div class="chronos-container">
+                <h1 class="hours">
+                    Time
+                </h1>
+                <h3>Hours</h3>
+            </div>
+
+            <div class="chronos-container">
+                <h1 class="minutes">
+                    Time
+                </h1>
+                <h3>Minutes</h3>
+            </div>
+
+            <div class="chronos-container">
+                <h1 class="seconds">
+                    Time
+                </h1>
+                <h3>Seconds</h3>
+            </div>
+        </div>
+
+        <div class="message-box">
+            <h3 class="display-message">
+                Lorem Ipsum
+            </h3>
+        </div>
+
+        <div class="form-wrap">
+            <label for="daysInput">Days</label>
+            <input type="number" placeholder="Type something..." id="daysInput">
+
+            <label for="daysInput">Hours</label>
+            <input type="number" min="0" max="12" placeholder="Type something..." id="hoursInput">
+
+            <label for="minutesInput">Minutes</label>
+            <input type="number" min="0" max="59" placeholder="Type something..." id="minutesInput">
+
+            <label for="secondsInput">Seconds</label>
+            <input type="number" placeholder="Type something..." id="secondsInput" min="0" max="59">
+
+            <button type="button" onclick="getInputs();">Submit</button>
+            </form>
+        </div>
+
+        <div class="message-input">
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+
+            <button type="button" onclick="sendMessage();">Send message</button>
+        </div>
+    </div>
+
+
+
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
