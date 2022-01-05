@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500;800&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .wrapper {
-    background-color: brown;
+    background-color: #232323;
+    color: #ffffff;
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -20,7 +24,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     display: flex;
     align-items: center;
     justify-items: center;
@@ -32,8 +36,26 @@
     padding: 30px;
 }
 
+.chronos-container h2{
+    font-size: 10rem;
+    font-weight: 800;
+}
+
 .chronos-container * {
     text-align: center;
+}
+
+.message-box{
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    background-color: #4F46E5;
+    padding: 30px;
+}
+
+.message-box marquee{
+    font-weight: 500;
+    font-size: 2.5rem;
 }
 
 
