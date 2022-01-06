@@ -7,6 +7,7 @@ let message = "";
 let overtime;
 let stat = "";
 var newWin;
+let msgBox = document.querySelector(".message-box");
 let wrapper = document.querySelector('.wrapper');
 let countwrap = document.querySelector('.countdown-wrap');
 const bc = new BroadcastChannel("present");
@@ -26,6 +27,16 @@ function hideCount(){
 function showCount(){
     countwrap.classList.remove('hide');
     wrapper.classList.remove('time');
+}
+
+function showMessage(){
+    msgBox.classList.remove('hide');
+}
+
+function hideMessage(){
+    if (!msgBox.classList.contains('hide')){
+         msgBox.classList.add('hide');
+    }
 }
 
 
@@ -133,6 +144,12 @@ function receivebroadcast() {
         document.querySelector('.display-message').innerText = e.data[4];
         document.querySelector('.status').innerText = e.data[5];
 
+        if(e.data[4] === ''){
+            hideMessage();
+        }else{
+            showMessage();
+        }
+        
         if(!e.data[6]){
             hideCount();
         }else{
