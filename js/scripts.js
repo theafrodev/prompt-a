@@ -4,8 +4,11 @@ let hourText = 0;
 let minuteText = 0;
 let secondText = 0;
 let message = "";
-let status = "";
+let overtime;
+let stat = "";
 var newWin;
+let wrapper = document.querySelector('.wrapper');
+let countwrap = document.querySelector('.countdown-wrap');
 const bc = new BroadcastChannel("present");
 
 //Open only one instance of presentation tab
@@ -13,6 +16,17 @@ function opentab() {
     newWin = window.open("./present.html", "Present_Tab", fullscreen = 1);
 }
 
+
+//Show and hide count
+function hideCount(){
+    countwrap.classList.add('hide');
+    wrapper.classList.add('time');
+}
+
+function showCount(){
+    countwrap.classList.remove('hide');
+    wrapper.classList.remove('time');
+}
 
 
 //Countdown Functionality
@@ -25,10 +39,13 @@ function countdown() {
     //regular time
     if ((countDate - now) >= 0) {
         difference = countDate - now;
+        stat = '';
+        overtime = true;
     } else {
         //overtime
         difference = now - countDate;
-        status = "Time's up"
+        stat = "Time's up";
+        overtime = false;
     }
 
     //time logic
@@ -47,7 +64,7 @@ function countdown() {
     document.querySelector('.hours').innerText = hourText;
     document.querySelector('.minutes').innerText = minuteText;
     document.querySelector('.seconds').innerText = secondText;
-    document.querySelector('.status').innerText = status;
+    document.querySelector('.status').innerText = stat;
 
 }
 
@@ -95,7 +112,7 @@ function sendbroadcast() {
     //Send message
     bc.postMessage(
 
-        [dayText, hourText, minuteText, secondText, message, status]
+        [dayText, hourText, minuteText, secondText, message, stat, overtime]
 
         // [1, 2, 3, 4, 5]
 
@@ -115,6 +132,12 @@ function receivebroadcast() {
         document.querySelector('.b-seconds').innerText = e.data[3];
         document.querySelector('.display-message').innerText = e.data[4];
         document.querySelector('.status').innerText = e.data[5];
+
+        if(!e.data[6]){
+            hideCount();
+        }else{
+            showCount();
+        }
     });
 
 }

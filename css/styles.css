@@ -58,6 +58,18 @@
     font-size: 2.5rem;
 }
 
+.status{
+    font-size: 8rem;
+    padding-top: 3rem;
+}
+
+.hide{
+    display: none;
+}
+
+.time{
+    background-color: #B00020;
+}
 
 /* .status {
     display: none;
