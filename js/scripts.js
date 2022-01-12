@@ -40,6 +40,12 @@ function hideMessage(){
 }
 
 
+//Clear Message
+function clearMessage(){
+    document.getElementById('message').value = '' ;
+    sendMessage();
+}
+
 //Countdown Functionality
 function countdown() {
     const now = new Date().getTime();
